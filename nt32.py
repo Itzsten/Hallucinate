@@ -1,3 +1,7 @@
+# | -------------------------------------------------------------------------------- |
+# |  nt32.py - Prepares high-level use of ntdll functions and macros using ctypes.   |
+# | -------------------------------------------------------------------------------- |
+
 from win32con import *
 
 import ctypes
