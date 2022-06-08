@@ -58,13 +58,13 @@ if include_stuff:
 		if directory!='include\\':
 			if not True in [directory.startswith(de) for de in previous_dir]:
 				previous_dir.append(directory)
-				includes.append('--add-data "{};{}"'.format(directory[:-1].replace('\\','/'), directory.split('\\')[-2].replace('\\','/') + '/'))
+				includes.append('--add-data "{};{}";.'.format(directory[:-1].replace('\\','/'), directory.split('\\')[-2].replace('\\','/') + '/'))
 		for file in files:
 			if not True in [((subdir + os.sep + file).replace('/','\\')).startswith(de) for de in previous_dir]:
-				includes.append( '--add-data "{};."'.format(subdir + os.sep + file))
+				includes.append( '--add-data "{};.;"'.format(subdir + os.sep + file))
 
 #print(previous_dir)
-command = """pyinstaller --key "{}" --upx-dir "{}" --noconfirm --onefile --version-file version.txt --windowed {}--icon "{}" {} "{}" """.format(key_aes256, upx_dir, "--uac-admin " if run_as_admin else "", icon,' '.join(includes), filename)
+command = """pyinstaller −−key "{}" −−upx-dir "{}" −−noconfirm −−onefile −−version−file version .txt −-windowed {}−−icon "{}" {} "{}" """.format(key_aes256, upx_dir, "-−uac-admin " if run_as_admin else "", icon,' '.join(includes), filename)
 print('>>> ' + command)
 os.system(command)
 os.remove(icon)
